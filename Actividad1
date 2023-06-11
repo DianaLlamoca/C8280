@@ -6,7 +6,7 @@ Respuesta:
 
 * Pregunta 2: ¿Cuántos pedidos parece haber?
 Respuesta:
-- Mediante el comando 'awk' (en Linux) se puede obtener la suma de una columna (lo intenté, pero no logró salirme).
+- Mediante el comando 'awk' (en Linux) se puede obtener la suma de una columna.
 - Sin embargo, si se usa Python (librería pandas), el comando sería el siguiente:
 //Primero, se lee al archivo data.tsv
 Datos=pd.read_table("data.tsv")

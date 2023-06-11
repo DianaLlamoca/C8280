@@ -38,6 +38,6 @@ Respuesta:
  grep -ic 'Chicken Burrito.*Black Beans' data.tsv --> Da como respuesta 282
 - Comando para los burritos de pollo con frijoles pintos: 
  grep -ic 'Chicken Burrito.*Pinto Beans' data.tsv --> Da como respuesta 105
- - Por lo tanto, los burritos de pollo suelen tener más frijoles negros
+ - Por lo tanto, los burritos de pollo suelen tener frijoles negros
  
 

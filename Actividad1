@@ -1,21 +1,21 @@
-Pregunta 1: Mire en la parte superior e inferior de data.tsv entregado en esta actividad. Piensa en cómo se estructuran los datos. ¿Qué crees que significa cada columna? ¿Qué crees que significa cada fila?
+* Pregunta 1: Mire en la parte superior e inferior de data.tsv entregado en esta actividad. Piensa en cómo se estructuran los datos. ¿Qué crees que significa cada columna? ¿Qué crees que significa cada fila?
 Respuesta:
 - Para poder visualizar la parte superior e inferior de data.tsv, se deben colocar los comandos 'head data.tsv' y 'tail.tsv', respectivamente.
 - Cada columna indica los datos de un producto en específico, como su ID, descripción de qué está compuesto, etc.
 - Cada fila representa los datos completos de un producto determinado.
 
-Pregunta 2: ¿Cuántos pedidos parece haber?
+* Pregunta 2: ¿Cuántos pedidos parece haber?
 Respuesta:
 - Comando 'grep'. OJITO
 
-Pregunta 3: ¿Cuántas líneas hay en este archivo?
+* Pregunta 3: ¿Cuántas líneas hay en este archivo?
 Respuesta:
 - Para contar la cantidad de línea en data.tsv, se hará uso del comando 'wc -l data.tsv'
  Si se coloca este comando, recibiremos como respuesta lo siguiente: 4624 (y al costado también aparecerá el nombre del archivo, en este caso 'data.tsv)
 - Sin embargo, otra forma de saber la cantidad de líneas, es utilizando el comando cat: cat data.tsv | wc -l
  De igual manera recibiremos como resultado 4624
 
-Pregunta 4: ¿Qué burrito es más popular, steak o chicken?
+* Pregunta 4: ¿Qué burrito es más popular, steak o chicken?
 Respuesta:
 - Para saber qué burrito es más popular, se debe usar el comando 'grep' y ver cuál de ambas respuestas (dadas al colocar el comando) es mayor (ya que se estaría contando cuántos de ellos hay, cada
 uno con diferentes 'descripciones', pero en sí son o bien 'Steak Burrito' o 'Chicken Burrito'.
@@ -25,4 +25,14 @@ grep -ic 'Steak Burrito' data.tsv  --> Da como respuesta 368
 - Para los 'chicken burrito':
 grep -ic 'Chicken Burrito' data.tsv  --> Da como respuesta 553
 - Por lo tanto, el burrito más popular es el 'Chicken Burrito'
+
+* Pregunta 5: ¿Los burritos de pollo suelen tener frijoles negros o frijoles pintos?
+- Es decir, los 'Chicken Burrito' qué suelen tener más
+- Para ello, también se usará el comando anterior, solo que en vez de contar cuántos hay de 'Chicken Burrito' en general, solo se calculará cuántos hay de un determinado tipo, entonces
+- Comando para los burritos de pollo con frijoles negros:
+ grep -ic 'Chicken Burrito.*Black Beans' data.tsv --> Da como respuesta 282
+- Comando para los burritos de pollo con frijoles pintos: 
+ grep -ic 'Chicken Burrito.*Pinto Beans' data.tsv --> Da como respuesta 105
+ - Por lo tanto, los burritos de pollo suelen tener más frijoles negros
+ 
 

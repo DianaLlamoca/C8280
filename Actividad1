@@ -1,6 +1,8 @@
 * Pregunta 1: Mire en la parte superior e inferior de data.tsv entregado en esta actividad. Piensa en cómo se estructuran los datos. ¿Qué crees que significa cada columna? ¿Qué crees que significa cada fila?
 Respuesta:
-- Para poder visualizar la parte superior e inferior de data.tsv, se deben colocar los comandos 'head data.tsv' y 'tail.tsv', respectivamente.
+- Para poder visualizar la parte superior e inferior de data.tsv, se deben colocar los siguientes comandos:
+'head data.tsv' --> Para visualizar la parte superior
+'tail.tsv' --> Para visualizar la parte inferior
 - Cada columna indica los datos de un producto en específico, como su ID, descripción de qué está compuesto, etc.
 - Cada fila representa los datos completos de un producto determinado.
 

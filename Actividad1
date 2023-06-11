@@ -15,5 +15,18 @@ Respuesta:
 - Sin embargo, otra forma de saber la cantidad de líneas, es utilizando el comando cat: cat data.tsv | wc -l
  De igual manera recibiremos como resultado 4624
 
-Pregunta 4: 
+Pregunta 4: ¿Qué burrito es más popular, steak o chicken?
+Respuesta:
+- Para saber qué burrito es más popular, se debe usar el comando 'grep' y ver cuál de ambas respuestas (dadas al colocar el comando) es mayor (ya que se estaría contando cuántos de ellos hay, cada
+uno con diferentes 'descripciones', pero en sí son o bien 'Steak Burrito' o 'Chicken Burrito'.
+Los comandos a utilizar son los siguientes:
+- Para los 'steak burrito':
+grep -ic 'Steak Burrito' data.tsv  --> Da como respuesta 368
+- Para los 'chicken burrito':
+grep -ic 'Chicken Burrito' data.tsv  --> Da como respuesta 553
+- Por lo tanto, el burrito más popular es el 'Chicken Burrito'
+
+
+
+'Steak Burrito' y 'Chicken Burrito'
 

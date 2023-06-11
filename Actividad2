@@ -1,1 +1,119 @@
+PANDAS:
+#Actividad2
+import pandas as pd
+
+#----------------------------
+#Lectura y escritura de datos
+#----------------------------
+
+DataFrame1=pd.read_csv("/car.data",header= None)
+#DataFrame1
+
+
+#-------------------------------
+#Resumen de estadísticas básicas
+#-------------------------------
+#A) Leyendo el data frame
+DataFrame2=pd.read_csv("/iris.data",header=None)
+DataFrame2
+
+#B) Covarianza (aquí se hace la separación de datos que solo contienen valores numéricos, ya que se evaluará la covarianza)
+DatosNuméricos=DataFrame2[[0,1,2,3]]
+DatosNuméricos
+
+#Covarianza
+Covarianza=DatosNuméricos.cov()
+Covarianza
+
+#C) Correlación (aquí se hace la separación de datos que solo contienen valores numéricos, ya que se evaluará la correlación)
+#Correlación
+Correlación=DatosNuméricos.corr()
+Correlación
+
+
+#-----------------------
+#Visualización de datos
+#-----------------------
+#Utilizando los datos de 'DataFrame1' (car data)
+
+#Mostrando las primeras y últimas 5 filas del data frame con los comandos head y tail
+Sup=DataFrame1.head()
+Inf=DataFrame1.tail()
+Sup,Inf
+
+#Obteniendo los nombres de las columnas
+DataFrame1.columns #Aquí se muestran los nombres de las columnas. Obviamente, los nombres de las columnas deben modificarse, ya que solo aparecerán números al inicio (por el header=None)
+
+#Obteniendo los tipos de datos de las 
+#Falta responder
+
+#Obteniendo el índice del dataframe
+DataFrame1.index
+
+#Obteniendo valores únicos de una determinada columna. Para ello, se realizará el cambio de nombre en las columnas (dichos nombres se sacan del mismo dataframe)
+#Cambiando los nombres de las columnas
+DataFrame1.columns=["Price","Maintenance cost","Number of doors","Capacity","Size of Luggage Boot","Safety","Decision"]
+DataFrame1
+#Ahora, obtenemos los valores únicos de cada columna
+DataFrame1["Price"].unique()
+DataFrame1["Maintenance cost"].unique()
+DataFrame1["Number of doors"].unique()
+DataFrame1["Capacity"].unique()
+DataFrame1["Size of Luggage Boot"].unique()
+DataFrame1["Safety"].unique()
+DataFrame1["Decision"].unique()
+
+#Obteniendo los valores de las columnas
+DataFrame1.values
+
+#Ahora, se ordenarán los valores por columnas (valores numéricos, aunque también pueden ser strings, pero estos se ordenarán por inicio de letras)
+#Para ello, cambiaremos el valor de '5more' de 'Number of doors' a 5
+DataFrame1["Number of doors"].replace(("5more"),(5),inplace=True)
+DataFrame1
+#Ahora, la columna "Number of doors" la ordenamos en orden descendiente
+#DataFrame1.sort_values("Number of doors") --> Arreglar
+
+#Seleccionando una columna específica
+DataFrame1["Price"]
+DataFrame1["Number of doors"]
+
+#Seleccionando por filas
+DataFrame1[0:4]
+
+#Seleccionando por índices
+DataFrame1.loc[0:4] #Del índice 0 al índice 4 (filas de 0 a la 4)
+
+#Seleccionando por índices y columnas específicas
+DataFrame1.loc[2:4,["Price","Number of doors"]] #Fila de 0 a 4 y columnas solamente "Price", "Number of doors"
+
+#Seleccionando por posición
+DataFrame1.iloc[2:4] #Filas del 2 al 3
+DataFrame1.iloc[2:5,1:4] #Filas del 2 al 4 y columnas de 1 a 3
+
+#loc -->index label, iloc --> index position
+
+#.ix[] --> is both label and integer base slicin' technique
+#Seleccionando por .ix[]
+#DataFrame1.ix[1,1]
+
+#Obteniendo la transpuesta del data frame
+x=DataFrame1.T
+
+
+#Filtrar valores según condiciones por columna
+#Seleccionando solo los datos en donde el 'Price' es 'low'
+DataFrame1[DataFrame1["Price"]=="low"]
+
+#Seleccionando valores con más de una condición
+DataFrame1[(DataFrame1["Price"]=="low") & (DataFrame1["Number of doors"]=="3")]
+
+
+#Ejercicio
+#-->¿Qué produce DataFrame1.iloc[0:3,0:3]?
+#Lo que daría como resultado, es seleccionar desde la fila 0 hasta la fila 2; y de la columna 0 hasta la columna 2 (0,2 y Price,MC,Num. of D.)
+DataFrame1.iloc[0:3,0:3]
+
+#-->Selección por posición entre número de filas específicos dados (iloc--> posición, loc--> índice)
+DataFrame1.iloc[230:550,2:5] #-->De la fila 230 hasta 549 hasta la fila 2 (Num. of doors a Size of Luggage)
+
 

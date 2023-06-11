@@ -6,7 +6,12 @@ Respuesta:
 
 * Pregunta 2: ¿Cuántos pedidos parece haber?
 Respuesta:
-- Comando 'grep'. OJITO
+- Mediante el comando 'awk' (en Linux) se puede obtener la suma de una columna (lo intenté, pero no logró salirme).
+- Sin embargo, si se usa Python (librería pandas), el comando sería el siguiente:
+//Primero, se lee al archivo data.tsv
+Datos=pd.read_table("data.tsv")
+//Una vez que ya se tienen los datos cargados, se procede con la suma por columna. En 'data.tsv', la columna para saber el total de pedidos es 'quantity'
+Pedidos=Datos['quantity'].sum()
 
 * Pregunta 3: ¿Cuántas líneas hay en este archivo?
 Respuesta:

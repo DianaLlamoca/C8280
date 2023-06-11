@@ -20,7 +20,8 @@ Respuesta:
 - Para contar la cantidad de líneas en data.tsv, se hará uso del siguiente comando:
  wc -l data.tsv
  Si se coloca este comando, recibiremos como respuesta lo siguiente: 4624 (y al costado también aparecerá el nombre del archivo, en este caso 'data.tsv)
-- Sin embargo, otra forma de saber la cantidad de líneas, es utilizando el comando cat: cat data.tsv | wc -l
+- Sin embargo, otra forma de saber la cantidad de líneas, es utilizando el comando cat:
+ cat data.tsv | wc -l
  De igual manera, recibiremos como resultado 4624
 
 * Pregunta 4: ¿Qué burrito es más popular, steak o chicken?

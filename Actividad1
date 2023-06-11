@@ -27,6 +27,7 @@ grep -ic 'Chicken Burrito' data.tsv  --> Da como respuesta 553
 - Por lo tanto, el burrito más popular es el 'Chicken Burrito'
 
 * Pregunta 5: ¿Los burritos de pollo suelen tener frijoles negros o frijoles pintos?
+Respuesta:
 - Es decir, los 'Chicken Burrito' qué suelen tener más
 - Para ello, también se usará el comando anterior, solo que en vez de contar cuántos hay de 'Chicken Burrito' en general, solo se calculará cuántos hay de un determinado tipo, entonces
 - Comando para los burritos de pollo con frijoles negros:

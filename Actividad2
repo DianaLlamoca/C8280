@@ -315,4 +315,24 @@ print(ArrayResult)
 
 
 
+Podemos aplicar el broadcasting en dos matrices. 
+# Completar
+M=np.array([[1,2,3],[5,2,7]])
+print(Matriz)
+Array1=np.array([6,2,3])
+print(Matriz+Array1)
 
+# Completar
+M2=np.array([[1,3],[2,7],[2,9]])
+Array2=np.array([2,3])
+print(M2*Array2)
+
+# Completar
+M3=np.array([[1,4,2],[6,8,2],[2,4,7]])
+Matriz=np.array([[4,2,5],[5,1,2],[2,1,5]])
+print(M3//Matriz)
+
+# Completar
+M4=np.array([[1,5,2],[4,2,4]])
+Array3=np.array([1,4,2])
+print(M4%Array3)

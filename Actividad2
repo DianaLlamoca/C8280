@@ -306,6 +306,12 @@ K=X[:,[1,2]] #Todas las filas, pero imprimiendo los ítems de las posiciones 1 y
 print(K)
 
 
+En este caso algún resultado inesperado se debe conceptualmente a que x[i] +=1 se entiende como una abreviatura de x[i] = x [i] + 1. Cuando x[i] + 1 es evaluado el resultado es asignado a los índices en x . Con esto en mente, no es que el aumento que ocurre varias veces, sino la asignación, que conduce a los resultados no intuitivos.
+Si queremos el otro comportamiento donde se repite la operación, se puede utilizar el método de ufuncs:
+# Completar
+Array1=[1,2,3,4]
+ArrayResult=np.add(Array1,1)
+print(ArrayResult)
 
 
 

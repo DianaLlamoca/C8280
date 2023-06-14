@@ -117,3 +117,196 @@ DataFrame1.iloc[0:3,0:3]
 DataFrame1.iloc[230:550,2:5] #-->De la fila 230 hasta 549 hasta la fila 2 (Num. of doors a Size of Luggage)
 
 
+
+#Numpy
+# Ejemplo
+from __future__ import division
+import time
+import numpy as np
+
+
+tam_vec = 1000
+def lista_python():
+    t1 = time.time()
+    X = range(tam_vec)
+    Y = range(tam_vec)
+    Z = []
+    for i in range(len(X)):
+        Z.append(X[i] + Y[i])
+    return time.time() - t1
+
+def matriz_numpy():
+    t1 = time.time()
+    X = np.arange(tam_vec)
+    Y = np.arange(tam_vec)
+    Z = X + Y
+    return time.time() - t1
+
+#Completar
+t1=lista_python()
+t2=matriz_numpy()
+print("Tiempo de la lista: ")
+print(t1)
+print("Tiempo del array de numpy: ")
+print(t2)
+print("Numpy es en este ejemplo "+str(t1/t2)+"más rápido")
+
+
+# arange() crea matrices con valores que se incrementan regularmente
+#Completar
+Array1=np.arange(3,10) #Creando arrays de valores de 3 a 9 (valores ascendentes)
+print(Array1)
+
+#Creando la matriz con valores que se incrementan regularmente
+M=np.arange(2,11).reshape(3,3)
+print(M)
+
+
+# Completa
+Array2=np.linspace(2,6,20) #Creando un array con un espaciado de 6
+print(Array2)
+
+
+np.random.seed(0)
+
+x1 = np.random.randint(10, size=6)  # matriz 1-d
+x2 = np.random.randint(10, size=(5, 4))  # matriz-2d
+x3 = np.random.randint(10, size=(2, 4, 5)) # matriz-3d
+print(x1,x2,x3)
+
+#Completar
+# Imprime los atributos : dim, shape, size, dtype, itemsize y nbytes
+#Imprimiendo 'dim' de cada una de las matrices
+print(x1.ndim)
+print(x2.ndim)
+print(x3.ndim)
+#Imprimiendo el 'shape' de cada una de las matrices
+print(x1.shape)
+print(x2.shape)
+print(x3.shape)
+#Imprimiendo el 'size' de cada una de las matrices
+print(x1.size)
+print(x2.size)
+print(x3.size)
+#Imprimiendo el 'dtype' de cada una de las matrices
+print(x1.dtype)
+print(x2.dtype)
+print(x3.dtype)
+#Imprimiendo el 'itemsize' de cada una de las matrices
+print(x1.itemsize)
+print(x2.itemsize)
+print(x3.itemsize)
+#Imprimiendo el 'nbytes' de cada una de las matrices
+print(x1.nbytes)
+print(x2.nbytes)
+print(x3.nbytes)
+
+Indexación de matrices
+Ejercicio
+Crea una matriz de rango 2 con dimension (3, 4)
+Usa el recorte para extraer la submatriz que consta de las primeras 2 filas y las columnas 1 y 2.
+Una parte de una matriz es solo una vista de los mismos datos, comprueba quecualquier modificación modificará la matriz original.
+# Tu respuesta
+#1)Crea una matriz de rango 2 con dimensión (3,4)
+Matriz=np.array([[1,3,2],[3,8,9],[1,2,5]])
+print(Matriz)
+#Verificando el rango
+print(np.linalg.matrix_rank(Matriz))
+
+#2)Usa el recorte para extraer la submatriz que consta de las primeras 2 filas y las columnas 1 y 2
+Matriz2=Matriz[:2,1:3] #Fila 0, 1 (qne vendrían a ser las 2 primeras filas); Columna 1,2 (suponiendo que la columna 0 existe y es 1,3,1)
+print(Matriz2)
+
+#3)Una parte de una matriz es solo una vista de los mismos datos, comprueba que cualquier modificación modificará la matriz original
+#Para ello, se seleccionará un lugar de la matriz y se le asignará un valor
+Matriz[1,2] #Fila 1, columna 2 (lista con posición 1 -->[3,8,9], y de esa lista, va al índice con posición 2 [9]) -->Resultado=9
+print(Matriz[1,2])
+#Pero, si se hace una modificación, entonces
+Matriz[1,2]=4 #El número 9 ya no estaría, sino el 4 (y la matriz original se modifica)
+print(Matriz)
+
+
+# vector fila via reshape
+x5=np.array([1,2,3])
+# completar
+VectorFila=x5.reshape(1,3) #1 fila, 3 columnas
+print(VectorFila)
+
+# vector fila con newaxis
+# completar
+VectFilaNewAxis=x5[np.newaxis,:]
+print(VectFilaNewAxis)
+
+# vector columna via reshape
+# completar
+VectorColumna=x5.reshape(3,1) #3 filas, 1 columna
+VectorColumna
+
+# vector columna con newaxis
+# completar
+VectColNewAxis=x5[:,np.newaxis]
+print(VectColNewAxis)
+
+
+
+x = np.array([0, 1, 2])
+grid = np.array([[3, 4, 5],
+                 [6, 5, 4]])
+
+# Se junta la matriz de manera vertical
+# Completar
+MR=np.vstack([x,grid])
+print(MR)
+
+
+# Se junta la matriz de manera horizontal
+y = np.array([[23],
+              [23]])
+# Completar
+MR2=np.hstack([grid,y]) #Se junta la matriz 'grid' y 'y' de manera horizontal. Por lo que el valor 23 se adjunta a la primera fila de grid y el otro 23 a la segunda fila de grid.
+print(MR2)
+
+
+Alternativamente, podemos pasar una sola lista o matriz de índices para obtener el mismo resultado:
+# Completar
+Índices=[1,5,2]
+ListaDeÍndices=x[Índices]
+print(ListaDeÍndices)
+
+Cuando se utiliza fancy, la forma del resultado refleja la forma de las matrices de índice en lugar de la forma de la matriz que se indexa y trabaja en múltiples dimensiones:
+# Completar
+MatrizÍndice=np.array([[1,4],[3,2]])
+print(MatrizÍndice.shape)
+#Matriz 'x' indexada refleja la forma de las matrices de índice
+print(x[MatrizÍndice])
+
+Observa que el primer valor en el resultado es X[0, 2], el segundo es X[1, 1] y el tercero es X[2, 3]. El emparejamiento de índices en la indexación fancy sigue todas las reglas del broadcasting, por ejemplo, si combinamos un vector de columna y un vector de fila dentro de los índices, obtenemos un resultado bidimensional:
+# Completar
+Mat=X[fila[:,np.newaxis],col]
+print(Mat)
+
+Aquí, cada valor de fila se empareja con cada vector de columna, exactamente como se hace en broadcasting de operaciones aritméticas. Por ejemplo:
+# Completar
+Mat2=fila[:,np.newaxis]*col
+print(Mat2)
+
+# Combinando el indexado fancy y indices simples
+# Completar
+I=X[1,[1,3]] #Fila 1; elementos de la posición 1 y 3 de es fila --> [5,7]
+print(I)
+M=X[[0,2],[1,3]] #Fila 0 y 2; elemento de la posición 1 de la fila 0; elemento de la posición 3 de la fila 2 --> [1,11]
+print(M)
+
+print(X[[1,2]][:,1:]) #Fila 1 y 2; todas las filas, pero desde la columna 1 hacia adelante --> [[5,6,7],[9,10,11]]
+
+
+# Combinando el indexado fancy y el recorte
+# Completar
+K=X[:,[1,2]] #Todas las filas, pero imprimiendo los ítems de las posiciones 1 y 2 --> [[1,2],[5,6],[9,10]]
+print(K)
+
+
+
+
+
+
